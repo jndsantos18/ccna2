@@ -296,7 +296,8 @@ Int Range fa0/10-12
  switchport trunk Encap Dot1Q
  switchport mode trunk
  switchport trunk allowed vlan 1-100
- no shut
+switchport trunk native vlan 1 
+no shut
  do sh int trunk
 Dot1q = Qupid,mave switches love each other:
       IEEE standard where SW will from Layer 2 trunks
@@ -494,7 +495,7 @@ config t
 hostname PLDT-ITO
 Track 1 Int gi 0/1 line-protocol
 Int vlan 1
-standby 1 ip 10.__.1.6
+standby 1 ip 10.61.1.6
 standby 1 preempt
 standby 1 Priority 150
 standby 1 Track 1 decrement 60
@@ -512,7 +513,7 @@ COREBABA/GLOBE:
 config t
 hostname GLOBE-ITO
 Int vlan 1
-standby 1 ip 10.__.1.6
+standby 1 ip 10.61.1.6
 standby 1 preempt
 standby 1 Priority 100
 end
@@ -556,6 +557,17 @@ Int Range fa0/10-12
  channel-protocol Lacp
  do sh etherchannel summary
  do sh int po1 | inc BW
+
+SA EXAM MO THIS 2025 and 2026, NEED MO ITRUNK AND PORT CHANNEL
+TAAS/BABA: STED,SMT,STAV,STNV
+conf t
+int port-channel 1
+switchport trunk encap dot1q
+switchport mode trunk
+switchport trunk allowed vlan 1-100
+switchport trunk native vlan 1
+end
+sh interface trunk
 
 TASK18: HOW TO RETAIN ALL THE INFORMATION:
 HOW TO GET CERTIFIED IN 2025!!!!
@@ -728,6 +740,7 @@ how to get certified:
 2. Lab: NAT and DHCP:
 
 3. ask sa CHAT: "latest reivewer"
+
 
 
 
